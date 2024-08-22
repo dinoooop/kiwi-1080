@@ -1,15 +1,18 @@
 @extends('layouts.admin')
-@section('title', 'Users')
+@section('title', 'Dashboard')
 
 @section('content')
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
 
     <div
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h3>Users</h3>
+        <h3>Blogs</h3>
 
         <div class="d-flex justify-content-end flex-sm-nowrap flex-wrap gap-2">
-            <a href="/admin/users/create" class="btn btn-primary"><i class="fas fa-add"></i></a>
+
+            
+            <a href="/admin/blogs/create" class="btn btn-primary"><i class="fas fa-add"></i></a>
+
             <button class="btn btn-outline d-md-none sidebarToggle">
                 <i class="fa-solid fa-bars"></i>
             </button>
@@ -25,16 +28,21 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Name</th>
-                                <th>Email</th>
+                                <th>Title</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($users as $key => $model)
+                            @foreach($data as $key => $model)
                                 <tr>
                                     <td>{{$model['id']}}</td>
-                                    <td>{{$model['name']}}</td>
-                                    <td>{{$model['email']}}</td>
+                                    <td>{{$model['title']}}</td>
+                                    <td>
+                                        <a href="/admin/blogs/{{$model['id']}}/edit" class="btn"><i
+                                                class="fas fa-edit"></i></a>
+                                        <button data-model-end-point="blogs" data-model-id="{{ $model->id }}"
+                                            class="btn trash"><i class="fas fa-trash"></i></button>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -49,5 +57,4 @@
 @endsection
 
 @section('footer')
-
 @endsection

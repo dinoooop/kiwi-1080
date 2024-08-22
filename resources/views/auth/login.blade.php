@@ -26,7 +26,6 @@
                 <button type="submit" class="btn btn-primary">SUBMIT</button>
             </div>
             <div class="my-3">
-                <p><a href="/reset">Forgot your password?</a></p>
                 <p>Back to <a href="/">Home</a></p>
             </div>
 

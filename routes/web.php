@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -32,5 +33,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('admin', [AdminController::class, 'dashboard'])->name('admin');
     Route::resource('admin/users', UserController::class);
+    Route::resource('admin/blogs', BlogController::class);
 
 });
